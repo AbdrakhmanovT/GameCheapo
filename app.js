@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const dotenv = require('dotenv').config();
 
 const browseRouter = require('./routes/browseRouter');
 const gameRouter = require('./routes/gameRouter');
@@ -23,6 +24,6 @@ app.get('/', async (req, res) => {
   res.render('home');
 });
 
-app.listen(3000, () => {
-  console.log('Server started');
+app.listen(process.env.PORT, () => {
+  console.log(`Server started at ${process.env.PORT}`);
 });

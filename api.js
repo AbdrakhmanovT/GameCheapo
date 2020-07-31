@@ -109,7 +109,4 @@ const CheapSharkAPI = {
   },
 };
 
-const log = async (data) => console.log(await data);
-log();
-
 module.exports = CheapSharkAPI;
