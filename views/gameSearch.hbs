@@ -1,0 +1,17 @@
+{{#if games}}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Название</th>
+        </tr>
+    </thead>
+        <tbody>
+        {{#each games}}
+        <tr>
+            <td scope="row"><a href="../game/{{gameID}}">{{external}}</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+{{else}}
+<h3>Ничего не найдено :-(</h3>
+{{/if}}

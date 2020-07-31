@@ -1,0 +1,14 @@
+img {
+    height: auto;
+    width: 50px;
+    display: none
+  }
+
+.game-title:hover img {
+  display: inline-block;
+}
+
+.old-price {
+  text-decoration: line-through;
+  font-size: x-small;
+}

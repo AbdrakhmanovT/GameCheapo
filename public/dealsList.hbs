@@ -1,0 +1,13 @@
+{{#each deals}}
+<tr>
+    <td scope="row"><a href='../game/{{gameID}}'>{{title}}</a></td>
+    {{#if isFree}}
+        <td><span class="text-secondary"><small><s>&dollar;{{normalPrice}}</s></small></span><strong> Бесплатно</strong></td>
+    {{else}}
+    <td><span class="text-secondary"><small><s>&dollar;{{normalPrice}}</s></small></span> &dollar;{{salePrice}}</td>
+    {{/if}}
+    <td scope="row">{{savings}}%</td>
+    <td scope="row">{{this.store}}</td>
+    <td scope="row"><a href="https://www.cheapshark.com/redirect?dealID={{this.dealID}}">Купить</a></td>
+</tr>
+{{/each}}

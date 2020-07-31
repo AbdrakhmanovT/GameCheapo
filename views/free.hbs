@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Игра</th>
+            <th scope="col">Магазин</th>
+            <th scope="col">Ссылка</th>
+        </tr>
+    </thead>
+    <tbody>
+{{#each games}}
+        <tr>
+            <td scope="row"><a href='../game/{{gameID}}'>{{this.title}}</a></td>
+            <td scope="row">{{store}}</td>
+            <td scope="row"><a href="https://www.cheapshark.com/redirect?dealID={{this.dealID}}">Забрать бесплатно</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

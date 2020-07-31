@@ -1,0 +1,118 @@
+<script defer src="browse.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 col-lg-5 mb-1">
+            <div name="store-select">
+                <label for="storenames">Магазин:</label>
+                <input class="form-select" type="text" name="storename" list="storename" id='storenames'>
+                <datalist id="storename">
+                    <option value="Steam">
+                    <option value="GamersGate">
+                    <option value="GamersGate">
+                    <option value="Amazon">
+                    <option value="GameStop">
+                    <option value="Direct2Drive">
+                    <option value="GoG">
+                    <option value="Origin">
+                    <option value="Get Games">
+                    <option value="Shiny Loot">
+                    <option value="Humble Store">
+                    <option value="Desura">
+                    <option value="Uplay">
+                    <option value="IndieGameStand">
+                    <option value="Fanatical">
+                    <option value="Gamesrocket">
+                    <option value="Games Republic">
+                    <option value="SilaGames">
+                    <option value="Playfield">
+                    <option value="ImperialGames">
+                    <option value="WinGameStore">
+                    <option value="FunStockDigital">
+                    <option value="GameBillet">
+                    <option value="Voidu">
+                    <option value="Epic Games Store">
+                    <option value="Razer Game Store">
+                    <option value="Gamesplanet">
+                    <option value="Gamesload">
+                    <option value="2Game">
+                    <option value="IndieGala">
+                    <option value="Blizzard Shop">
+                </datalist>
+            </div>
+        </div>
+        <div class="col-4 col-lg-5">
+            <label for="sort-by">Сортировать по:</label>
+            <select class="form-select" id='sort-form'>
+                <option selected id='sort-by' value="Deal Rating"></option>
+                <option value="Deal Rating">рейтингу скидки</option>
+                <option value="Title">алфавиту</option>
+                <option value="Savings">размеру скидки</option>
+                <option value="Price">цене</option>
+                <option value="Metacritic">оценке Metacritic</option>
+                <option value="Release">дате релиза</option>
+                <option value="Store">магазину</option>
+                <option value="recent">новизне</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <label for="max">Цена до:</label>
+            <input type="number" class="form-control" id='max' placeholder="$">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="steamworks">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Показывать только доступные в Steam
+                </label>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-dark float-right" id='browse-button'>Искать</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Игра</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Скидка</th>
+            <th scope="col">Магазин</th>
+            <th scope="col">Ссылка</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each deals}}
+        <tr>
+            <td scope="row"><a href='../game/{{gameID}}'>{{this.title}}</a></td>
+            {{#if this.isFree}}
+            <td><span class="text-secondary"><small><s>&dollar;{{this.normalPrice}}</s></small></span><strong>
+                    Бесплатно</strong></td>
+            {{else}}
+            <td><span class="text-secondary"><small><s>&dollar;{{this.normalPrice}}</s></small></span> &dollar;{{salePrice}}
+            </td>
+            {{/if}}
+            <td scope="row">{{this.savings}}%</td>
+            <td scope="row">{{this.store}}</td>
+            <td scope="row"><a href="https://www.cheapshark.com/redirect?dealID={{this.dealID}}">Купить</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<nav aria-label="pagination">
+    <ul class="pagination justify-content-center" id='pagingationlist'>
+        <li class="page-item">
+            <a class="page-link" id="previous-page">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link pagenum" href="#">1</a></li>
+        <li class="page-item"><a class="page-link pagenum" href="#">2</a></li>
+        <li class="page-item"><a class="page-link pagenum" href="#">3</a></li>
+        <li class="page-item"><a class="page-link pagenum" href="#">4</a></li>
+        <li class="page-item"><a class="page-link pagenum" href="#">5</a></li>
+        <li class="page-item">
+            <a class="page-link" id="next-page">Next</a>
+        </li>
+    </ul>
+</nav>
