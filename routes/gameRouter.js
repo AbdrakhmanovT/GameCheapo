@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.get('/:id', async (req, res) => {
   const game = await api.getGameById(req.params.id);
-  console.log(game);
   game.deals = game.deals.map((deal) => {
     deal.savings = Math.floor(deal.savings);
     if (deal.savings === 100) deal.isFree = true;

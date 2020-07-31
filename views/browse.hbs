@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4 col-lg-5 mb-1">
+        <div class="col-auto col-lg-5 mb-1">
             <div name="store-select">
                 <label for="storenames">Магазин:</label>
                 <input class="form-select" type="text" name="storename" list="storename" id='storenames'>
@@ -41,7 +41,7 @@
                 </datalist>
             </div>
         </div>
-        <div class="col-4 col-lg-5">
+        <div class="col-auto col-lg-5">
             <label for="sort-by">Сортировать по:</label>
             <select class="form-select" id='sort-form'>
                 <option selected id='sort-by' value="Deal Rating"></option>
@@ -55,13 +55,13 @@
                 <option value="recent">новизне</option>
             </select>
         </div>
-        <div class="col-2">
+        <div class="col-auto col-md-2 mb-3">
             <label for="max">Цена до:</label>
             <input type="number" class="form-control" id='max' placeholder="$">
         </div>
     </div>
     <div class="row">
-        <div class="col-auto">
+        <div class="col-auto mb-2">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="steamworks">
                 <label class="form-check-label" for="flexCheckDefault">
@@ -70,9 +70,10 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-dark float-right" id='browse-button'>Искать</button>
+    <button type="button" class="btn btn-dark float-left mb-2" id='browse-button'>Искать</button>
 </div>
 
+<div class="table-responsive container-fluid">
 <table class="table">
     <thead>
         <tr>
@@ -101,6 +102,7 @@
         {{/each}}
     </tbody>
 </table>
+</div>
 <nav aria-label="pagination">
     <ul class="pagination justify-content-center" id='pagingationlist'>
         <li class="page-item">

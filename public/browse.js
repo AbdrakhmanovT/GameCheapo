@@ -36,6 +36,26 @@ const tbody = document.getElementsByTagName('tbody')[0];
 const pageList = document.getElementById('pagingationlist');
 const listButtons = [...document.getElementsByClassName('pagenum')];
 
+document.getElementById('storename').addEventListener('click', (e) => {
+  const input = e.target;
+  const list = input.getAttribute('list');
+
+  if (list) {
+    input.setAttribute('data-list', list);
+    input.removeAttribute('list');
+  }
+});
+
+document.getElementById('storename').addEventListener('keydown', (e) => {
+  const input = e.target;
+  const list = input.getAttribute('data-list');
+
+  if (list) {
+    input.setAttribute('list', list);
+    input.removeAttribute('data-list');
+  }
+});
+
 pageList.addEventListener('click', (e) => {
   console.log(e.target.className);
   if (e.target.id === 'previous-page') {
