@@ -2,4 +2,4 @@
 
 Агрегатор скидок на видеоигры.
 
-![Экран поиска](https://github.comAbdrakhmanovT/GameCheapo/blob/master/readme/search.png)
+![Экран поиска](https://github.comAbdrakhmanovT/GameCheapo/master/readme/search.png)
